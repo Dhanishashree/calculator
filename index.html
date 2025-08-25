@@ -6,39 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-  <style>
-    body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
-    }
-    input, select, button {
-    padding: 10px;
-    margin: 10px;
-    font-size: 16px;
-    }
-    #result {
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    color: darkblue;
-    }
-  </style>
-    <input type="number" placeholder="num1" id="num1">
-    <input type="number" placeholder="num2" id="num2">
-
-    <select name="" id="operation">
-        <option value="add">addition(+)</option>
-        <option value="sub">subraction(-)</option>
-        <option value="multiplication">multiplication(*)</option>
-        <option value="division">division(/)</option>
-    </select>
-
-    <button onclick="calculate()">calculate</button>
-
-    <h2 id="result">Result :</h2>
-
-
-    <script src="./app.js"></script>
+    <textarea name="" id="mainText" placeholder="type here"></textarea>
+    <div class="count">
+        char:<span id ="charCount">0</span><br>
+        words:<span id ="wordCount">0</span>
+    </div>
+    <script>
+        document.getElementById("mainText").addEventListener("input",function(){
+        const text=this.value;
+        document.getElementById("charCount").innerText=text.length;
+        const trim = text.trim();
+        const words =trim === "" ? 0:trim.split(/\s+/).length;
+        document.getElementById("wordCount").innerText=words;
+    })
+    </script>
 </body>
 </html>
